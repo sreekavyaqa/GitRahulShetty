@@ -1,0 +1,30 @@
+package streams;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WebTableSoring {
+public static void main(String[] args) {
+	WebDriverManager.chromedriver().setup();
+	WebDriver driver= new ChromeDriver();
+	driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+	//click on column,it gets sorted
+	driver.findElement(By.xpath("//tr//th[1]")).click();
+	//capture all the webelements into list
+	List<WebElement>elementlist=driver.findElements(By.xpath("//tr//td[1]"));
+	//capture text of allwebelements into new list(Original ist)
+	List<String> originalList=elementlist.stream().map(s->s.getText()).collect(Collectors.toList());
+	
+	//Apply sort on the original  in list of step3->Sorted list
+	List<String>sortedList=originalList.stream().sorted().collect(Collectors.toList());
+	//Compare original list vs sorted list
+	
+}
+}

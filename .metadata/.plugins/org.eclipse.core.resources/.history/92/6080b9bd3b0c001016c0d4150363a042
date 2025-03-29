@@ -1,0 +1,53 @@
+package streams;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+import org.testng.annotations.Test;
+
+public class Test1 {
+	//@Test
+	public void regular() {
+
+		// TODO Auto-generated method stub
+//Count the number of names starting with Alphabet A in the list
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Radhe");
+		names.add("Krishna");
+		names.add("BalaraRama");
+		names.add("Keshava");
+		names.add("Rama");
+		names.add("Sita");
+		int count = 0;
+		for (int i = 0; i < names.size(); i++) {
+			String actual = names.get(i);
+			if (actual.startsWith("K")) {
+				count++;
+			}
+		}
+
+		System.out.println("Count of names:" + count);
+	}
+	@Test
+	public void streamFilter() {
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Radhe");
+		names.add("Krishna");
+		names.add("BalaraRama");
+		names.add("Keshava");
+		names.add("Rama");
+		names.add("Sita");
+		//there is no life for intermediate operation if there is no terminal operation
+		//terminal operation will only execute if intermediate operation returns true
+		//we can create stream
+		//how to use filter in stream Api
+		Long c=names.stream().filter(s->s.startsWith("K")).count();
+		System.out.println("count "+ c);
+		Stream.of("Radhe","Krishna","BalaRama","Keshava","Rama","sita").filter(s->
+		{
+		s.startsWith("K");
+		return false;
+		}
+		).count();
+	}
+}

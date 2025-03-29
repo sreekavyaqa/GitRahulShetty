@@ -1,0 +1,79 @@
+package streams;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.google.common.collect.Streams;
+
+public class Test1 {
+	//@Test
+	public void regular() {
+
+		// TODO Auto-generated method stub
+//Count the number of names starting with Alphabet A in the list
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Radhe");
+		names.add("Krishna");
+		names.add("BalaraRama");
+		names.add("Keshava");
+		names.add("Rama");
+		names.add("Sita");
+		int count = 0;
+		for (int i = 0; i < names.size(); i++) {
+			String actual = names.get(i);
+			if (actual.startsWith("K")) {
+				count++;
+			}
+		}
+
+		System.out.println("Count of names:" + count);
+	}
+	//@Test
+	public void streamFilter() {
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Radhe");
+		names.add("Krishna");
+		names.add("BalaraRama");
+		names.add("Keshava");
+		names.add("Rama");
+		names.add("Sita");
+		//there is no life for intermediate operation if there is no terminal operation
+		//terminal operation will only execute if intermediate operation returns true
+		//we can create stream
+		//how to use filter in stream Api
+		Long c=names.stream().filter(s->s.startsWith("K")).count();
+		System.out.println("count "+ c);
+		Long d=Stream.of("Radhe","Krishna","BalaRama","Keshava","Rama","sita").filter(s->
+		{
+		s.startsWith("K");
+		return true;
+		}
+		).count();
+		System.out.println("Count 2 is "+d);
+		//print all the names of the arraylist
+		names.stream().filter(s->s.length()>4).forEach(s->System.out.println(s));
+		names.stream().filter(s->s.length()>4).limit(1).forEach(s->System.out.println(s));
+	}
+	
+	@Test
+	public void streamMap() {
+		List<String>names = Arrays.asList("Rama","Sita","Lakshmana","Bharatha","Shathrugna","Radha","Ravana");
+		//print names which have last letter as 'a' with uppercase(Manipulation)
+		Stream.of("Radhe","Krishna","BalaRama","Keshava","Rama","sita").filter(s->s.endsWith("a")).map(s->s.toUpperCase())
+		.forEach(s->System.out.println("After converting to uppercase "+s));
+		//print names which have first letter 'k' with uppercase and sort it
+		List<String >names1= Arrays.asList("Radhe","Krishna","BalaRama","Keshava","Rama","sita");
+		names1.stream().filter(s->s.startsWith("K")).sorted().map(s->s.toUpperCase()).forEach(s->System.out.println("After Sorting "+s));
+		//Mergeing (Concating) 2 different lists
+		Stream<String> newStream= Streams.concat(names.stream(),names1.stream());
+		//newStream.sorted().forEach(s->System.out.println("After concating 2 lists "+s));
+		boolean flag=newStream.anyMatch(s->s.equalsIgnoreCase("Radhe"));
+		System.out.println(flag);
+		Assert.assertTrue(flag);
+	}
+}

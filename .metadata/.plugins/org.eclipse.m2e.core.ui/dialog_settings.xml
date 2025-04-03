@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\SKumarakalva\eclipse-workspace\SeleniumFrameworkDesign2"/>
+			<item value="C:\Users\SKumarakalva\eclipse-workspace"/>
+			<item value="C:\Users\SKumarakalva\eclipse-workspace\selenium-java"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -13,6 +16,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -24,10 +28,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.rahulshettyacademy.SeleniumFrameworkDesign1"/>
 		</list>
 		<list key="groupId">
+			<item value="com.rahulshettyacademy"/>
 		</list>
 		<list key="artifactId">
+			<item value="SeleniumFrameworkDesign1"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -43,20 +50,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.rahulshettyacademy"/>
-			<item value="com.java"/>
-			<item value="rahulshettyacademy"/>
 		</list>
 		<list key="name">
-			<item value="JavaStreams"/>
-			<item value="Java Streams Tutorial"/>
-			<item value="StreamsTutorial"/>
 		</list>
 		<list key="artifactId">
-			<item value="StreamTutoral"/>
-			<item value="StreamsTutorial"/>
-			<item value="rahulshettyacademy"/>
-			<item value="selenium-java"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

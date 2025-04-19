@@ -37,8 +37,8 @@ public class PageObjectModelTest extends BaseTest {
 		  Assert.assertTrue(match);
 		  
 		  CheckOutPage checkoutPage=cartPage.goToCheckOut();
-		  checkoutPage.selectCountry("india"); ConfirmationPage
-		  confirmpage=checkoutPage.submitOrder();
+		  checkoutPage.selectCountry("india"); 
+		  ConfirmationPage confirmpage=checkoutPage.submitOrder();
 		  
 		  String confirmMsg=confirmpage.getConfirmationMsg();
 		  

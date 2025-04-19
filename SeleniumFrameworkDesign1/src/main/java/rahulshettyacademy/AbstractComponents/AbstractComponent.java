@@ -24,7 +24,7 @@ WebDriver driver;
 		
 	}
 	
-	@FindBy(css="[routerlink*='cart']")
+	@FindBy(xpath="//button[@routerlink='/dashboard/cart']")
 	WebElement cartHeader;
 	
 	@FindBy(css="[routerlink*='myorders']")
@@ -32,18 +32,18 @@ WebDriver driver;
 	
 	public void waitForElementToAppear(By findBy) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 	}
 	
 public void waitForWebElementToAppear(WebElement findBy) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOf(findBy));
 	}
 	
 	public void waitForElementToDisappear(WebElement ele) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.invisibilityOf(ele));
 	}
 	
@@ -67,6 +67,8 @@ public void waitForWebElementToAppear(WebElement findBy) {
 	}
 	
 	public CartPage goToCartPage() {	
+		System.out.println("In cart page");
+		//mouseHoverAndClick(cartHeader);
 		cartHeader.click();
 		CartPage cartPage= new  CartPage(driver);
 		return cartPage;

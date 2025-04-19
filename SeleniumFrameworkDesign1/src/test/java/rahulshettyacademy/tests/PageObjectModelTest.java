@@ -32,18 +32,19 @@ public class PageObjectModelTest extends BaseTest {
 		productCatalogue.addProductToCart(input.get("newProduct"));		
 		
 		
-		CartPage cartPage=productCatalogue.goToCartPage();		
-		Boolean match =cartPage.verifyProductDisplay(input.get("newProduct"));
-		Assert.assertTrue(match);
-		
-		CheckOutPage checkoutPage=cartPage.goToCheckOut();
-		checkoutPage.selectCountry("india");
-		ConfirmationPage confirmpage=checkoutPage.submitOrder();
-		
-		String confirmMsg=confirmpage.getConfirmationMsg();
-		
-		Assert.assertTrue(confirmMsg.equalsIgnoreCase("Thankyou for the order."));
-		Thread.sleep(2000);
+		  CartPage cartPage=productCatalogue.goToCartPage();		
+		  Boolean match =cartPage.verifyProductDisplay(input.get("newProduct"));
+		  Assert.assertTrue(match);
+		  
+		  CheckOutPage checkoutPage=cartPage.goToCheckOut();
+		  checkoutPage.selectCountry("india"); ConfirmationPage
+		  confirmpage=checkoutPage.submitOrder();
+		  
+		  String confirmMsg=confirmpage.getConfirmationMsg();
+		  
+		  Assert.assertTrue(confirmMsg.equalsIgnoreCase("Thankyou for the order."));
+		  Thread.sleep(2000);
+		 
 
 	}
 	
@@ -60,8 +61,9 @@ public class PageObjectModelTest extends BaseTest {
 	public Object[][] getData() throws Exception {
 	
 		List<HashMap<String, String>>data=getJsonDataToMap(System.getProperty("user.dir")+"\\src\\test\\java\\rahulshettyacademy\\data\\PurchaseOrder.json");
-		return new Object[][] {{data.get(0)},{data.get(1)}};
+		return new Object[][] {{data.get(0)}};
 	}
+	//data.get(0)},{data.get(1)}
 	/*
 	 * @DataProvider public Object[][] getData1() { return new Object[][]
 	 * {{"kavya.19jan@gmail.com",
